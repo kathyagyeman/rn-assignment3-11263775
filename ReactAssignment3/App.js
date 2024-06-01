@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Image, View ,  Text} from 'react-native';
+
+import { StyleSheet, Image, View ,  Text, ScrollView} from 'react-native';
 
 
 
@@ -10,6 +10,12 @@ const Exercise = require('./assets/Images/exercise.png');
 const Study = require('./assets/Images/working at desk.png');
 const Sleeping = require('./assets/Images/Sleeping woman.jpeg');
 const Code = require('./assets/Images/Code.jpg');
+const Health = require('./assets/Images/Health.jpeg');
+const Call = require('./assets/Images/Call.jpeg');
+const Cook = require('./assets/Images/Cook.jpeg');
+const Eat = require('./assets/Images/Eat.jpeg');
+
+
 
 
 
@@ -18,6 +24,7 @@ export default function App() {
   return (
 
     <View style={styles.container}>
+    <ScrollView>
     
       <Image source={Header} style={styles.image} />
       <Image source={Search} style={styles.image} />
@@ -53,14 +60,39 @@ export default function App() {
         <Text style={{marginLeft:30}}>12 tasks</Text>
       <Image source={Code} style={styles.right} />
       </View>
-     
   
-      
-
         </View>
 
-    
+      <View style={styles.store}>
+    <View style={styles.pictureContainer}>
+        <Text style={{fontWeight:"bold", fontSize:18,marginLeft:30}}>Health</Text>
+          <Text style={{marginLeft:30}}>12 Tasks</Text> 
+          <Image source={Health} style={styles.pictures} />
+
+        </View>
+         <View style={styles.pictureContainer}>
+        <Text style={{fontWeight:"bold", fontSize:18, marginLeft:30}}>Call</Text>
+        <Text style={{marginLeft:30}}>12 tasks</Text>
+      <Image source={Call} style={styles.right} />
+      </View>
       
+      </View>
+
+        <View style={styles.store}>
+    <View style={styles.pictureContainer}>
+        <Text style={{fontWeight:"bold", fontSize:18,marginLeft:30}}>Cook</Text>
+          <Text style={{marginLeft:30}}>12 Tasks</Text> 
+          <Image source={Cook} style={styles.pictures} />
+
+        </View>
+         <View style={styles.pictureContainer}>
+        <Text style={{fontWeight:"bold", fontSize:18, marginLeft:30}}>Eat</Text>
+        <Text style={{marginLeft:30}}>12 tasks</Text>
+      <Image source={Eat} style={styles.right} />
+      </View>
+      
+      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -99,6 +131,8 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent: 'space-between',
     marginBottom: 20,
+    marginLeft:10,
+    marginRight:10,
     
     
   },
