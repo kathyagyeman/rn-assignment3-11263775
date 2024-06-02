@@ -1,5 +1,4 @@
-
-import { StyleSheet, Image, View ,  Text, ScrollView} from 'react-native';
+import { StyleSheet, Image, View ,  Text, ScrollView, SafeAreaView, SectionList } from 'react-native';
 
 
 
@@ -16,14 +15,31 @@ const Cook = require('./assets/Images/Cook.jpeg');
 const Eat = require('./assets/Images/Eat.jpeg');
 
 
+const DATA = [
+  {
+    title:"Ongoing Task",
+    data: ["Mobile App Development", "Web Development", "Push Ups","Project Planning", "Customer Support", 
+      "Database Management", "Content Writing", "Networking", "Code Review", "Software Testing", 
+      "Graphic Design", "Quality Assurance", "Budget Planning", "Customer Feedback Analysis", "Blogging"
+    ]
+
+  }
+];
+
+ const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}> {title} </Text>
+  </View>
+);
+
 
 
 
 
 export default function App() {
   return (
-
     <View style={styles.container}>
+     
     <ScrollView>
     
       <Image source={Header} style={styles.image} />
@@ -45,8 +61,6 @@ export default function App() {
       
       </View>
       
-      
-
       
     <View style={styles.store}>
     <View style={styles.pictureContainer}>
@@ -92,7 +106,20 @@ export default function App() {
       </View>
       
       </View>
+
+      <SafeAreaView style={styles.container}>
+      <SectionList
+      sections={DATA}
+      keyExtractor={(item, index) => item + index}
+      renderItem={({item}) => <Item title={item} />}
+      renderSectionHeader={({section : {title} }) => (
+        <Text style={styles.header}> {title} </Text>
+      )}
+      />
+    </SafeAreaView>
+
       </ScrollView>
+
     </View>
   );
 }
@@ -106,6 +133,7 @@ const styles = StyleSheet.create({
 
   image: {
     marginBottom:30,
+    marginLeft:30,
   },
    
   pictures: {
@@ -123,25 +151,42 @@ const styles = StyleSheet.create({
      height:180, 
     backgroundColor:'#fff',
     borderRadius:5,
-   
-    
   },
 
   store: {
     flexDirection:'row',
     justifyContent: 'space-between',
     marginBottom: 20,
-    marginLeft:10,
+    marginLeft:30,
     marginRight:10,
-    
-    
   },
 
   pictureContainer:{
     backgroundColor: '#fff',
     borderRadius: 5,
     marginRight: 40,
-    
   },
+
+  item: {
+    backgroundColor: '#fbf9f7',
+    padding: 50,
+    marginVertical: 8,
+    borderRadius: 5,
+    marginLeft:30,
+    marginRight:10,
+    flexDirection:'row',
+    width: 500,
+  },
+
+  header: {
+    fontSize: 32,
+    backgroundColor: '#f7f0e8',
+    marginLeft:30,
+  },
+
+  title: {
+    fontSize: 24,
+  },
+
 
 });
