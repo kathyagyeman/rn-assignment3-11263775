@@ -20,7 +20,7 @@ const DATA = [
     title:"Ongoing Task",
     data: ["Mobile App Development", "Web Development", "Push Ups","Project Planning", "Customer Support", 
       "Database Management", "Content Writing", "Networking", "Code Review", "Software Testing", 
-      "Graphic Design", "Quality Assurance", "Budget Planning", "Customer Feedback Analysis", "Blogging"
+      "Graphic Design", "Quality Assurance", "Budget Planning", "Team Meeting", "Blogging"
     ]
 
   }
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
 
   pictureContainer:{
     backgroundColor: '#fff',
-    borderRadius: 5,
+    borderRadius: 10,
     marginRight: 40,
   },
 
